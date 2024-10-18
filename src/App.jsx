@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { TodoContextProvider } from "./Contexts/TodoContext";
 import TodoForm from "./Components/TodoForm";
 import TodoItem from "./Components/TodoItem";
+import Logo from "./Components/Logo";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -33,7 +34,7 @@ function App() {
 
   // getting the previously saved todo list at the first load of the website from local storage
   useEffect(() => {
-    const todos =  JSON.parse(localStorage.getItem("todos"));
+    const todos = JSON.parse(localStorage.getItem("todos"));
     if (todos && todos.length > 0) {
       setTodos(todos);
     }
@@ -50,8 +51,10 @@ function App() {
     >
       <div className="bg-zinc-800 min-h-screen py-8">
         <div className="w-full max-w-2xl mx-auto shadow-2xl shadow-black/50 rounded-lg px-4 py-3 text-zinc-300">
+          <Logo />
+
           <h1 className="text-3xl font-black text-center mb-8 mt-2">
-            Manage Your Todos
+            Manage Your TODOs
           </h1>
           <div className="mb-4">
             <TodoForm />
